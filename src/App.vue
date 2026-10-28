@@ -26,21 +26,20 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
 :root {
-  --page: #08110f;
-  --surface: #111b18;
-  --surface-raised: #17231e;
-  --ink: #e8f3ec;
-  --muted: #8d9f95;
-  --line: rgba(165, 195, 175, 0.16);
-  --lime: #c3ff65;
-  --cyan: #62e5d1;
+  --page: #111111;
+  --surface: #f2f0e9;
+  --surface-raised: #ffffff;
+  --ink: #171717;
+  --muted: #8f8c85;
+  --line: rgba(255, 255, 255, 0.13);
+  --accent: #ff5728;
 }
 
 html {
@@ -50,14 +49,14 @@ html {
 
 body {
   margin: 0;
-  color: var(--ink);
+  color: #f5f3ed;
   background-color: var(--page);
   background-image:
-    linear-gradient(rgba(141, 181, 155, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(141, 181, 155, 0.045) 1px, transparent 1px),
-    linear-gradient(125deg, #0d1915 0%, #08110f 52%, #0c1518 100%);
-  background-size: 42px 42px, 42px 42px, 100% 100%;
-  font-family: 'Space Grotesk', 'Avenir Next', sans-serif;
+    linear-gradient(115deg, transparent 0 57%, rgba(255, 87, 40, 0.08) 57% 57.4%, transparent 57.4%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 10px),
+    linear-gradient(135deg, #1d1d1d 0%, #101010 58%, #1e1714 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%;
+  font-family: 'Barlow', 'Avenir Next', sans-serif;
 }
 
 #app {
@@ -81,14 +80,13 @@ main {
 main::before {
   position: absolute;
   z-index: -1;
-  top: 10%;
-  right: 7%;
-  width: 280px;
-  height: 280px;
-  border: 1px solid rgba(98, 229, 209, 0.08);
-  border-radius: 50%;
+  top: 0;
+  right: 0;
+  width: min(45vw, 560px);
+  height: 100%;
+  background: repeating-linear-gradient(135deg, transparent 0 23px, rgba(255, 87, 40, 0.07) 23px 24px, transparent 24px 48px);
+  clip-path: polygon(76% 0, 100% 0, 100% 100%, 0 100%);
   content: '';
-  box-shadow: 0 0 0 32px rgba(98, 229, 209, 0.018), 0 0 0 64px rgba(98, 229, 209, 0.012);
 }
 
 .topbar {
@@ -99,18 +97,19 @@ main::before {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
-  background: rgba(8, 17, 15, 0.72);
+  background: rgba(13, 13, 13, 0.9);
 }
 
 .wordmark {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: var(--ink);
+  color: #f5f3ed;
   text-decoration: none;
-  font-size: 19px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .wordmark-mark {
@@ -118,28 +117,29 @@ main::before {
   height: 27px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--lime);
-  border-radius: 5px 1px 5px 1px;
-  background: rgba(195, 255, 101, 0.08);
-  color: var(--lime);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 16px;
-  box-shadow: 0 0 16px rgba(195, 255, 101, 0.1);
+  border: 0;
+  border-radius: 2px;
+  background: var(--accent);
+  color: #171717;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%);
 }
 
 .topbar-note {
-  color: var(--muted);
-  font-family: 'IBM Plex Mono', monospace;
+  color: #aaa7a0;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 1.6px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 footer {
   padding: 0 24px 24px;
-  color: #74867c;
+  color: #88847d;
   text-align: center;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Barlow', sans-serif;
   font-size: 10px;
 }
 
@@ -160,10 +160,8 @@ footer {
   }
 
   main::before {
-    top: 5%;
-    right: -170px;
-    width: 230px;
-    height: 230px;
+    right: -80px;
+    width: 240px;
   }
 }
 </style>
